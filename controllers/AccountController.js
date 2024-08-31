@@ -10,7 +10,6 @@ const GetTransactions = async (req, res, next) => {
         const transactions = await getTransactionsByAddress(address);
         console.log(transactions);
         return res.status(200).json(transactions);
-
         
     } catch (error) {
         return res.status(400).json({ Error: `${error}` });
