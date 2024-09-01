@@ -1,6 +1,10 @@
 const axios = require('axios');
-const { getTransactionsByAddress } = require('../services/AccountService');
+const { getTransactionsByAddress,
+        getUserTransactionsByAddress,
+        calculateTotalExpense
+} = require('../services/AccountService');
 const Transaction = require('../models/Transaction');
+const { fetchEthPrice } = require('../services/CryptoService');
 
 const GetTransactions = async (req, res, next) => {
     
@@ -44,9 +48,37 @@ const GetTransactions = async (req, res, next) => {
         return res.status(200).json(transactions);
         
     } catch (error) {
+        console.error(error);
         return res.status(400).json({ Error: `${error}` });
     }
 
 }
 
-module.exports = { GetTransactions }
+const GetExpense = async (req, res, next) => {
+    
+    const { address } = req.params;
+
+    try {
+
+        const userTransactions = await getUserTransactionsByAddress(address);
+        if(!userTransactions) {
+            return res.status(400).json({ message: "No transactions found with this address" });
+        }
+
+        const totalExpense = calculateTotalExpense(userTransactions);
+
+        const currentEtherPrice = await fetchEthPrice();
+
+        return res.status(200).json({ 
+            "Totan Expense": totalExpense,
+            "Current Ether Price": currentEtherPrice 
+        })
+
+    } catch (error) {
+        console.error(error);
+        return res.status(400).json({ Error: `${error}` });
+    }
+
+}
+
+module.exports = { GetTransactions, GetExpense }
