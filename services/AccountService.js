@@ -20,7 +20,7 @@ const getTransactionsByAddress = async(address) => {
         return response.data.result;
     } catch (error) {
         console.error(error);        
-        return res.status(400).json({ Error: `${error}` });
+        return error;
     }
 }
 
