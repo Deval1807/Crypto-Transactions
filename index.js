@@ -11,7 +11,7 @@ const port = process.env.PORT || 8000;
 
 ConnectDB();
 
-// Fetch every 10 mins
+// Fetch ethereum price every 10 mins
 FetchEthPriceEvery10Mins();
 
 app.get('/', (req, res) => res.send('Hello World!'));
