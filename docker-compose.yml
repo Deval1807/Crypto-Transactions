@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  cryptotransaction:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: cryptotransaction
+    env_file:
+      - .env
+    container_name: cryptotransaction
+    ports:
+      - 8000:8000
