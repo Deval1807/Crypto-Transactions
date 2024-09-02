@@ -28,12 +28,12 @@ const fetchEthPriceEvery10Mins = async () => {
     
     // First fetch once immediately
     const price = await fetchEthPrice();
-    updateEthereumPriceDB(price);
+    await updateEthereumPriceDB(price);
 
     // Fetch after every 10 mins
     setInterval(async () => {
         const price = await fetchEthPrice();
-        updateEthereumPriceDB(price);
+        await updateEthereumPriceDB(price);
     }, 600000);
 }
 
