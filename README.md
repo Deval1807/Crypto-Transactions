@@ -50,7 +50,7 @@ Ensure you have the following environment variables set up in your `.env` file:
 PORT=<your-port>
 MONGO_URI=<your-URI>
 ETHERSCAN_API_TOKEN=<your-api-token>
-ETHERSCAN_NORMAL_TRANSACTIONS_URL=https://api.etherscan.io/api
+ETHERSCAN_URL=https://api.etherscan.io/api
 ETH_PRICE_URL=https://api.coingecko.com/api/v3/simple/price
 ```
 

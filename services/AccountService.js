@@ -3,7 +3,7 @@ const Transaction = require('../models/Transaction');
 
 const getTransactionsByAddress = async (address) => {
     const api_token = process.env.ETHERSCAN_API_TOKEN
-    const etherscan_url = process.env.ETHERSCAN_NORMAL_TRANSACTIONS_URL
+    const etherscan_url = process.env.ETHERSCAN_URL
     try {
         const response = await axios.get(etherscan_url, {
             params: {

@@ -6,15 +6,17 @@ const Crypto = require('../models/Crypto');
  * NOTE: We can also generalize this function by passing the crypto name(ethereum) and currency(inr) as arguments
  */
 const fetchEthPrice = async () => {
-    const etherscan_url = process.env.ETH_PRICE_URL
+    const api_token = process.env.ETHERSCAN_API_TOKEN
+    const etherscan_url = process.env.ETHERSCAN_URL
     try {
         const response = await axios.get(etherscan_url, {
             params: {
-                ids: 'ethereum',
-                vs_currencies: 'inr'
+                module: 'stats',
+                action: 'ethprice',
+                apikey: api_token
             }
-        });  
-        return response.data.ethereum.inr;
+        });
+        return response.data.result.ethusd;
     } catch (error) {
         console.error(error);        
         return error
@@ -48,8 +50,8 @@ const updateEthereumPriceDB = async (price) => {
         if(ethPrice) {
             // If exists, push the new price
             ethPrice.pricingInfo.push({
-                price,
-                currency: 'INR',
+                price: price,
+                currency: 'USD',
                 fetchedAt: new Date()
             });
 
@@ -63,7 +65,7 @@ const updateEthereumPriceDB = async (price) => {
                 name: 'Ethereum',
                 pricingInfo: [{
                     price,
-                    currency: 'INR',
+                    currency: 'USD',
                     fetchedAt: new Date()
                 }]
             });

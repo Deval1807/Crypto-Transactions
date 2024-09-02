@@ -71,7 +71,7 @@ const GetExpense = async (req, res, next) => {
 
         return res.status(200).json({ 
             "Totan Expense": totalExpense,
-            "Current Ether Price": currentEtherPrice 
+            "Current Ether Price in USD": currentEtherPrice 
         })
 
     } catch (error) {
