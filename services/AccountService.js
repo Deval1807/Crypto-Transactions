@@ -28,6 +28,7 @@ const getTransactionsByAddress = async (address) => {
 const getUserTransactionsByAddress = async (address) => {
     try {
         const userTransactions = await Transaction.findOne({ address });
+        if(userTransactions == null) return null;
         return userTransactions.transactions;
     } catch (error) {
         console.error(error);

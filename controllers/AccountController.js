@@ -61,7 +61,8 @@ const GetExpense = async (req, res, next) => {
     try {
 
         const userTransactions = await getUserTransactionsByAddress(address);
-        if(!userTransactions) {
+        
+        if(userTransactions==null) {
             return res.status(400).json({ message: "No transactions found with this address" });
         }
 
@@ -70,7 +71,7 @@ const GetExpense = async (req, res, next) => {
         const currentEtherPrice = await fetchEthPrice();
 
         return res.status(200).json({ 
-            "Totan Expense": totalExpense,
+            "Total Expense": totalExpense,
             "Current Ether Price in USD": currentEtherPrice 
         })
 

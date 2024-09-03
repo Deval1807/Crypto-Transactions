@@ -12,7 +12,7 @@ A simple backend to fetch the details of crypto transactions of a user
     - [Configuration](#configuration)
     - [Starting the Project](#starting-the-project)
     - [Usage](#usage)
-
+3. [Deployement](#deployment)
 
 ## Technologies Used
 
@@ -97,4 +97,19 @@ ETH_PRICE_URL=https://api.coingecko.com/api/v3/simple/price
 
 ### Usage
 
-Once the server is running, you can access the API endpoints using a tool like Postman or via your frontend application. 
+Once the server is running, you can access the API endpoints using a tool like Postman or via your frontend application.
+
+Since there are only GET requests, you also use your Browser to directly access the 2 API endpoints:
+- [API to fetch the Crypto Transaction of a user](https://crypto-transactions-tri3.onrender.com/api/account/transactions/0xce94e5621a5f7068253c42558c147480f38b5e0d)
+
+- [API to get the total expense of the user](https://crypto-transactions-tri3.onrender.com/api/account/expense/0xce94e5621a5f7068253c42558c147480f38b5e0d) 
+
+NOTE: You can change the address to get results for different account
+- API 1: `https://crypto-transactions-tri3.onrender.com/api/account/transactions/<your_address>`
+
+- API 2: `https://crypto-transactions-tri3.onrender.com/api/account/expense/<your_address>`
+
+
+## Deployment
+
+The Deployed Project link: [Deployed Backend](https://crypto-transactions-tri3.onrender.com)
