@@ -11,8 +11,8 @@ A simple backend to fetch the details of crypto transactions of a user
     - [Cloning](#cloning)
     - [Configuration](#configuration)
     - [Starting the Project](#starting-the-project)
-    - [Usage](#usage)
-3. [Deployement](#deployment)
+3. [Usage](#usage)
+4. [Deployement](#deployment)
 
 ## Technologies Used
 
@@ -95,7 +95,7 @@ ETH_PRICE_URL=https://api.coingecko.com/api/v3/simple/price
             ```
 
 
-### Usage
+## Usage
 
 Once the server is running, you can access the API endpoints using a tool like Postman or via your frontend application.
 
