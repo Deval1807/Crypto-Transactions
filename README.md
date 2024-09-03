@@ -1,4 +1,4 @@
-# Backend for ClassConnect Application
+# Server for fetching Crypto transactions of a user
 
 ## Description
 
@@ -20,7 +20,7 @@ A simple backend to fetch the details of crypto transactions of a user
 - Express.js: Frameword to create web-applications
 - MongoDB: As a NoSQL Database
 - Docker: For Containerizing the application
-
+- Render: For Deploying
 
 
 ## Getting Started
@@ -51,13 +51,12 @@ PORT=<your-port>
 MONGO_URI=<your-URI>
 ETHERSCAN_API_TOKEN=<your-api-token>
 ETHERSCAN_URL=https://api.etherscan.io/api
-ETH_PRICE_URL=https://api.coingecko.com/api/v3/simple/price
 ```
 
 
 ### Starting the Project
 
-- You can get started with the project in 2 ways. By simply starting the proj by installing dependencies and by Docker image.
+- You can get started with the project in 2 ways. By simply starting the project by installing dependencies and by Docker image.
 
 1. Through Docker:
 
